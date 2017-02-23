@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+      <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+        <head>
+        	<title>An HTML Form</title>
+          	<link rel="stylesheet" type="text/css" href="common.css" />
+        </head>
+
+        <body>
+
+        	<h1>An HTML Form</h1>	
+
+<!--
+- action tells the Web browser where to send the form data when the user fills out and
+submits the form. This should either be an absolute URL (such as http://www.example.com/ myscript.php) or a relative URL (such as myscript.php, /myscript.php, or ../ scripts/myscript.php). The script at the specified URL should be capable of accepting
+and processing the form data; more on this in a moment.
+
+- method tells the browser how to send the form data. You can use two methods: get is useful for sending small amounts of data and makes it easy for the user to resubmit the form, and post can send much larger amounts of form data.
+-->
+
+<!--
+This XHTML Web page contains the most common types of form controls you’re likely to come across. First, the form itself is created. Notice that the form is created with the get method. This means that the form field names and values will be sent to the server in the URL. You learn more about the get and post methods shortly. Meanwhile, the empty action attribute tells the browser to send the form back to the same page (web_form.html). In a real-world form this attribute would contain the URL of the form handler script.
+-->
+        	<form action=" " method="get">
+  
+  <!--
+Next, each of the form controls is created in turn. Most controls are given a name attribute, which is the name of the field that stores the data, and a value attribute, which contains either the fixed field value or, for fields that let the users enter their own value, the default field value. You can think of the field names and field values as being similar to the keys and values of an associative array.
+
+Most controls are also given an associated label element containing the field label. This text describes the field to the users and prompts them to enter data into the field. Each label is associated with its control using its for attribute, which matches the corresponding id attribute in the control element.
+  -->      		
+        		<div style="width: 25em;">
+ <!--
+A text input field –– This allows the user to enter a single line of text. You can optionally prefill the field with an initial value using the value attribute (if you don’t want to do this, specify an empty string for the value attribute, or leave the attribute out altogether)
+ -->
+        			<label for="textField">A text input field</label>
+        			<input type="text" name="textField" value="Text Please" />
+ <!--
+A password field — This works like a text input field, except that the entered text is not displayed. This is, of course, intended for entering sensitive information such as passwords. Again, you can prefill the field using the value attribute, though it’s not a good idea to do this because the password can then be revealed by viewing the page source in the Web browser.
+ -->       	
+        			<label for="passwordField">A password field</label>
+        			<input type="password" name="passwordField" id="passwordfield" value="" />
+ <!--
+A checkbox field — This is a simple toggle; it can be either on or off. The value attribute should contain the value that will be sent to the server when the checkbox is selected (if the checkbox isn’t selected, nothing is sent).
+ -->  
+        			<label for="checkboxField">A checkbox field</label>
+        			 <!-- Auto checked--> 
+        			<input type="checkbox" name="checkboxField" checked = "checked" id="checkboxField" value="yes" />
+ <!--
+Two radio button fields — Radio buttons tend to be placed into groups of at least two buttons. All buttons in a group have the same name attribute. Only one button can be selected per group. As with checkboxes, use the value attribute to store the value that is sent to the server if the button is selected. Note that the value attribute is mandatory for checkboxes and radio buttons, and optional for other field types.
+ -->  
+        			<label for="radioButtonField1">A radio button field</label>
+        			 <!--You can preselect a radio button using the same technique as for preselecting checkboxes.
+ -->  
+             		<input type="radio" name="radioButtonField" id="radioButtonField1" checked = "checked" value="radio1" />
+             		<label for="radioButtonField2">Another radio button</label>
+             		<input type="radio" name="radioButtonField" id="radioButtonField2" value="radio2" />
+ <!--
+A submit button — Clicking this type of button sends the filled-in form to the server-side script for processing. The value attribute stores the text label that is displayed inside the button (this value is also sent to the server when the button is clicked).
+ -->  
+             		<label for="submitButton">A submit button</label>
+             		<input type="submit" name="submitButton" id="submitButton" value="Submit Form" />
+ <!--
+A reset button — This type of button resets all form fields back to their initial values (often empty). The value attribute contains the button label text.
+ -->  
+             		<label for="resetButton">A reset button</label>
+             		<input type="reset" name="resetButton" id="resetButton" value="Reset Form" />
+             		 <!--
+A file select field — This allows the users to choose a file on their hard drive for uploading to t server (see “Creating File Upload Forms” later in the chapter). The value attribute is usually ignored by the browser
+ -->  
+             		<label for="fileSelectField">A file select field</label>
+             		<input type="file" name="fileSelectField" id = "fileSelectField" value=" " />
+             		<!--
+A hidden field — This type of field is not displayed on the page; it simply stores the text value specified in the value attribute. Hidden fields are great for passing additional information fro the form to the server.
+ --> 
+             		<label for="hiddenField">A hidden field</label>
+            		<input type="hidden" name="hiddenField" id="hiddenField" value=" " />
+<!--
+An image field — This works like a submit button, but allows you to use your own button graphic instead of the standard gray button. You specify the URL of the button graphic using t src attribute, and the graphic’s width and height (in pixels) with the width and height attributes. As with the submit button, the value attribute contains the value that is sent to the server when the button is clicked.
+ -->             		
+            		<label for="imageField">An image field</label>
+            		<input type="image" name="imageField" id="imageField" value=" " src="asterisk.gif" width="23" height="23" />
+<!--
+An image field — This works like a submit button, but allows you to use your own button graphic instead of the standard gray button. You specify the URL of the button graphic using t src attribute, and the graphic’s width and height (in pixels) with the width and height attributes. As with the submit button, the value attribute contains the value that is sent to the server when the button is clicked.
+ -->            		
+            		<label for="pushButton">A push button</label>
+            		<input type="button" name="pushButton" id="pushButton"
+    				value="Click Me" />
+<!--
+A push button — This type of button doesn’t do anything by default when it’s clicked, but you can make such buttons trigger various events in the browser using JavaScript. The value attribute specifies the text label to display in the button.
+ -->     				
+            		<label for="pullDownMenu">A pull-down menu</label>
+<!--
+A pull-down menu — This allows a user to pick a single item from a predefined list of options. The size attribute’s value of 1 tells the browser that you want the list to be in a pull-down me format. Within the select element, you create an option element for each of your options. Place the option label between the <option> ... </option> tags. Each option element can have an optional value attribute, which is the value sent to the server if that option is selected.
+ -->  
+            		<select name="pullDownMenu" id="pullDownMenu" size="1">
+              			<option value="option1">Option 1</option>
+              			<option value="option2">Option 2</option>
+              			<option value="option3">Option 3</option>
+            			
+            		</select>
+<!--
+A list box — This works just like a pull-down menu, except that it displays several options at once. To turn a pull-down menu into a list box, change the size attribute from 1 to the number of options to display at once.
+ --> 
+            		<label for="listBox">A list box</label>
+            		<select name="listBox" id="listBox" size="3">
+              			<option value="option1">Option 1</option>
+              			<option value="option2">Option 2</option>
+              			<option value="option3">Option 3</option>
+            		</select>
+<!--
+A multi-select list box — This works like a list box, but it also allows the user to select multiple items at once by holding down Ctrl (on Windows and Linux browsers) or Command (on Mac browsers). To turn a normal list box into a multi-select box, add the attribute multiple (with a value of “multiple“) to the select element. If the user selects more than one option, all the selected values are sent to the server.
+ -->            
+            		<label for="multiListBox">A multi-select list box</label>
+            		<select name="multiListBox" id="multiListBox" size="3"
+    				multiple="multiple">
+             			<option value="option1">Option 1</option>
+              			<option value="option2">Option 2</option>
+              			<option value="option3">Option 3</option>
+            		</select>
+<!--
+A text area field — This is similar to a text input field, but it allows the user to enter multiple lines of text. Unlike most other controls, you specify an initial value (if any) by placing the text between the <textarea> ... </textarea> tags, rather than in a value attribute. A textarea element must include attributes for the height of the control in rows (rows) and the width of the control in columns (cols).
+ -->            		
+            		<label for="textAreaField">A text area field</label>
+            		<textarea name="textAreaField" id="textAreaField" rows="4" cols="50"></textarea>
+        		</div>
+        	</form>
+<!--
+Try filling in a few of the fields, then clicking the Submit Form button. Because the action attribute in the <form> tag is an empty string, the browser sends the form data back to the same URL (web_form. html). Obviously web_form.html can’t do anything with the form data because it’s simply an HTML Web page, but shortly you’ll be writing PHP scripts that can handle data sent from a form.
+
+Notice that, once you submit your form, you can see all of the form data in your browser’s address bar, as shown in Figure 9-2. This is because your form used the get method, which sends the form data in the URL. You can see that the form data is preceded by a ? character, and that the data for each form field is sent as a name/value pair:
+   http://localhost/web_form.html?textField=Hello&passwordField=secret& ...
+The get method is limited in the amount of data it can send, because a URL can only contain a small number of characters (1,024 characters is a safe upper limit). If you need to send larger amounts of data from a form, use the post method instead:
+   <form action=”myscript.php” method=”post”>
+The post method sends the data within the HTTP headers of the request that’s sent to the server, rathe than embedding the data in the URL. This allows a lot more data to be sent. If the users try to refresh t page after sending a form via the post method, their browser usually pops up a dialog box asking the if they want to resend their form data.
+ -->  
+        </body>
+	</html>
+
+
+
+
+
+
+
+
+
+
+
